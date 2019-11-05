@@ -11,4 +11,5 @@ gem 'sequel', '~> 4.36'
 
 group :production do
   gem 'pg', '~> 1.1', '>= 1.1.4'
+  gem 'rake', '~> 11.2', '>= 11.2.2'
 end
