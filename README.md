@@ -33,7 +33,7 @@ Root project:
 > Sequel currently has adapters for ADO, Amalgalite, IBM_DB, JDBC, MySQL, Mysql2, ODBC, Oracle, PostgreSQL, SQLAnywhere, SQLite3, and TinyTDS.
 > Change (ADAPTER) of your preference, like(sqlite or postgres)
 
-sequel -m db/migrations ADAPTER://db/movies_development.sqlite3
+sequel -m db/migrations ADAPTER://db/movies_development.db
 
 
 ### Create movie
@@ -78,4 +78,4 @@ JSON response:
 
 curl -X POST -H Content-Type:application/json http://localhost:9292/api/movies/MOVIE_ID/reservations/new -d "{\"dni\": \"NUMERO_DOCUMENTO\", \"name\": \"NOMBRE_QUIEN_RESERVA\", \"email\": \"CORREO\", \"cel\": \"NUMERO_CELULAR\", \"reservation_date\": \"DD/MM/AAAA\"}"
 
-
+See on Heroku https://movies-grape-api.herokuapp.com/api
