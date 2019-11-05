@@ -21,7 +21,7 @@ rackup
 
 > http://localhost:9292/api/test
 
-JSON response:
+JSON response: 
 {
   "saludo": "Hola Mundo!"
 }
@@ -47,7 +47,7 @@ curl -X POST -H Content-Type:application/json http://localhost:9292/api/movies/n
 
 curl -X GET -H Content-Type:application/json 'http://localhost:9292/api/movies/cartelera?start_date=DD/MM/AAAA'
 
-JSON response:
+JSON response: 
 [
   {
     "name": "Avengers 1",
