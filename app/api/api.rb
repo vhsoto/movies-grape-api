@@ -56,9 +56,9 @@ module Rest
 
       post ':id/reservations/new' do
         @movie = Movie[params[:id]]
-        d1 = @movie.start_date.strftime('%d/%m/%Y')
-        d2 = @movie.end_date.strftime('%d/%m/%Y')
-        if (d1..d2).include?(params[:reservation_date])
+        d1 = @movie.start_date
+        d2 = @movie.end_date
+        if (d1..d2).include?(params[:reservation_date].to_date)
           @reservation = @movie.add_reservation(dni: params[:dni], name: params[:name], email: params[:email], cel: params[:cel], reservation_date: params[:reservation_date])
         else
           raise StandardError.new "La película no se encuentra disponible en esa fecha"
