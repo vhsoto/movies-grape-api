@@ -45,7 +45,7 @@ curl -X POST -H Content-Type:application/json http://localhost:9292/api/movies/n
 ### Get listing movie by date
 > change this (DD/MM/AAAA)
 
-curl -X GET -H Content-Type:application/json 'http://localhost:9292/api/movies/cartelera?start_date=DD/MM/AAAA'
+curl -X GET -H Content-Type:application/json 'http://localhost:9292/api/movies/cinema_listing?fecha=DD/MM/AAAA'
 
 JSON response: 
 [
