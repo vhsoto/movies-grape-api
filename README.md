@@ -78,4 +78,4 @@ JSON response:
 
 curl -X POST -H Content-Type:application/json http://localhost:9292/api/movies/MOVIE_ID/reservations/new -d "{\"dni\": \"NUMERO_DOCUMENTO\", \"name\": \"NOMBRE_QUIEN_RESERVA\", \"email\": \"CORREO\", \"cel\": \"NUMERO_CELULAR\", \"reservation_date\": \"DD/MM/AAAA\"}"
 
-See on Heroku https://movies-grape-api.herokuapp.com/api
+See on Heroku https://movies-grape-api.herokuapp.com/api/movies
