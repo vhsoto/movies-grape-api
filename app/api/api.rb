@@ -25,8 +25,8 @@ module Rest
       get 'cinema_listing' do        
         date = params['fecha']        
         @movies = Movie.all.map do |movie|
-          d1 = Date.strptime(movie.start_date, '%d/%m/%Y')
-          d2 = Date.strptime(movie.end_date, '%d/%m/%Y')
+          d1 = movie.start_date
+          d2 = movie.end_date
           if (d1..d2).include?(date.to_date)
             {
               
