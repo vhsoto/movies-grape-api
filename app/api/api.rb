@@ -27,7 +27,7 @@ module Rest
         @movies = Movie.all.map do |movie|
           d1 = Date.strptime(movie.start_date, '%d/%m/%Y')
           d2 = Date.strptime(movie.end_date, '%d/%m/%Y')
-          if (d1..d2).include?(Date.strptime(date, '%d/%m/%Y'))
+          if (d1..d2).include?(date.to_date)
             {
               
                 name: movie.name, 
