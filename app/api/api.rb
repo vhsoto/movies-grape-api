@@ -57,7 +57,7 @@ module Rest
       get ':id/reservations' do
         @movie = Movie[params[:id]]
         {
-          reservations: @movie.reservations.map{|r| {movie: r.movie.name, dni: r.dni, name: r.name, booking: r.reservation_date }}
+          reservations: @movie.reservations.map{|r| {dni: r.dni, name: r.name, booking: r.reservation_date }}
         }
       end
     end
