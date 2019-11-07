@@ -66,16 +66,3 @@ module Rest
     mount Movie
   end
 end
-
-curl -X POST -H Content-Type:application/json https://movies-grape-api.herokuapp.com/api/movies/new -d 
-"{\"name\": \"Joker\", 
-  \"description\": \"In 1981, party clown and aspiring stand-up comedian Arthur Fleck 
-  lives with his mother, Penny, in Gotham City. Gotham is rife with crime 
-  and unemployment, leaving segments of the population disenfranchised and impoverished. 
-  Arthur suffers from a disorder that causes him to laugh at inappropriate times, 
-  and depends on social services for medication. After a gang attacks him in an alley, 
-  Arthur\'s co-worker, Randall, gives him a gun. Arthur invites his neighbor, 
-  single mother Sophie, to his stand-up comedy show, and they begin dating.\", 
-\"url_img\": \"https://upload.wikimedia.org/wikipedia/en/e/e1/Joker_%282019_film%29_poster.jpg\", 
-\"start_date\": \"31/08/2019\", 
-\"end_date\": \"20/10/2019\"}"
