@@ -66,5 +66,3 @@ module Rest
     mount Movie
   end
 end
-
-curl -X POST -H Content-Type:application/json https://movies-grape-api.herokuapp.com/api/movies/1/reservations/new -d "{\"dni\": \"45781256\", \"name\": \"Jeffer Díaz\", \"email\": \"jdias@example.com\", \"cel\": \"3214565858\", \"reservation_date\": \"01/10/2019\"}"
