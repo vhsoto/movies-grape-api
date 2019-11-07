@@ -6,76 +6,66 @@
 
 gem install bundler
 
-
 ### Install all gems from Gemfile
 
 bundle install
-
 
 ### Run server
 
 rackup
 
-
 ### Execute test request
 
-> http://localhost:9292/api/test
+*http://localhost:9292/api/test*
 
 JSON response: 
-{
-  "saludo": "Hola Mundo!"
-}
 
+> {  
+> "saludo": "Hola Mundo!"  
+> }
 
 ### Run migrations
+> Sequel currently has adapters for ADO, Amalgalite, IBM_DB, JDBC, MySQL, Mysql2, ODBC, Oracle, PostgreSQL, SQLAnywhere, SQLite3, and TinyTDS. Change (ADAPTER) of your preference, like(sqlite or postgres)
 
-Root project:
-> Sequel currently has adapters for ADO, Amalgalite, IBM_DB, JDBC, MySQL, Mysql2, ODBC, Oracle, PostgreSQL, SQLAnywhere, SQLite3, and TinyTDS.
-> Change (ADAPTER) of your preference, like(sqlite or postgres)
+*At the root of project, run the command below:*
 
-sequel -m db/migrations ADAPTER://db/movies_development.sqlite3
+> *Replace 'DB_NAME' with your database name*
 
+sequel -m db/migrations ADAPTER://db/DB_NAME.db
 
 ### Create movie
-> change this (NOMBRE_PELICULA, DESCRIPCION_PELICULA, RUTA_IMAGEN y DD/MM/AAAA)
 
-curl -X POST -H Content-Type:application/json http://localhost:9292/api/movies/new -d "{\"name\": \"NOMBRE_PELICULA\", \"description\": \"DESCRIPCION_PELICULA\", \"url_img\": \"RUTA_IMAGEN\", \"start_date\": \"DD/MM/AAAA\", \"end_date\": \"DD/MM/AAAA\" }"
+> Replace 'MOVIE_NAME', 'MOVIE_DESCRIPTION', 'IMG_URL' and 'MM/DD/YYYY' in the command below with the correct data.
 
+curl -X POST -H Content-Type:application/json [http://localhost:9292/api/movies/new](http://localhost:9292/api/movies/new) -d "{"name": "MOVIE_NAME", "description": "MOVIE_DESCRIPTION", "url_img": "IMG_URL", "start_date": "MM/DD/YYYY", "end_date": "MM/DD/YYYY" }"
 
 ### Get listing movie by date
-> change this (DD/MM/AAAA)
 
-curl -X GET -H Content-Type:application/json 'http://localhost:9292/api/movies/cartelera?start_date=DD/MM/AAAA'
+> Replace 'DD/MM/YYYY' in the command below with a valid date.
+
+curl -X GET -H Content-Type:application/json '[http://localhost:9292/api/movies/cinema_listing?fecha=DD/MM/YYYY](http://localhost:9292/api/movies/cinema_listing?fecha=DD/MM/AAAA)'
 
 JSON response: 
 [
   {
-    "name": "Avengers 1",
-    "description": "erdyfghjnhbgvfcdxsxdfghjnnhbgvfcdfugihojpiohugyvftcdr",
-    "img": "https://google.com",
-    "start": "2019-11-01 00:00:00 -0500",
-    "end": "2019-11-10 00:00:00 -0500"
-  },
-  {
-    "name": "Avengers 4",
-    "description": "xrdcytfuvygbuigvuyftcdrxdytfugiubgyuvftcdrtxcfvgyuib",
-    "img": "https://google.com",
-    "start": "2019-11-02 00:00:00 -0500",
-    "end": "2019-11-15 00:00:00 -0500"
-  },
-  {
-    "name": "Avengers End Game",
-    "description": "xrdcytfuvygbuigvuyftcdrxdytfugiubgyuvftcdrtxcfvgyuib",
-    "img": "https://google.com",
-    "start": "2019-11-02 00:00:00 -0500",
-    "end": "2019-11-15 00:00:00 -0500"
+    "name": "Joker",
+    "description": "In 1981, party clown and aspiring stand-up comedian Arthur Fleck lives with his mother, Penny, in Gotham City. Gotham is rife with crime and unemployment, leaving segments of the population disenfranchised and impoverished. Arthur suffers from a disorder that causes him to laugh at inappropriate times, and depends on social services for medication. After a gang attacks him in an alley, Arthur's co-worker, Randall, gives him a gun. Arthur invites his neighbor, single mother Sophie, to his stand-up comedy show, and they begin dating.",
+    "img": "https://upload.wikimedia.org/wikipedia/en/e/e1/Joker_%282019_film%29_poster.jpg",
+    "start": "2019-08-31 00:00:00 +0000",
+    "end": "2019-10-20 00:00:00 +0000"
   }
 ]
 
-
 ### Create movie reservation
-> change this (MOVIE_ID, NUMERO_DOCUMENTO, NOMBRE_QUIEN_RESERVA, CORREO, NUMERO_CELULAR y DD/MM/AAAA)
 
-curl -X POST -H Content-Type:application/json http://localhost:9292/api/movies/MOVIE_ID/reservations/new -d "{\"dni\": \"NUMERO_DOCUMENTO\", \"name\": \"NOMBRE_QUIEN_RESERVA\", \"email\": \"CORREO\", \"cel\": \"NUMERO_CELULAR\", \"reservation_date\": \"DD/MM/AAAA\"}"
+> Replace 'DNI_NUMBER', 'PERSON_NAME', 'EMAIL', 'CELLPHONE' and 'DD/MM/YYYY' in the command below to the right data
 
+curl -X POST -H Content-Type:application/json [http://localhost:9292/api/movies/MOVIE_ID/reservations/new](http://localhost:9292/api/movies/MOVIE_ID/reservations/new) -d "{"dni": "DNI_NUMBER", "name": "PERSON_NAME", "email": "EMAIL", "cel": "CELLPHONE", "reservation_date": "DD/MM/YYYY"}"
 
+### Get movie reservations
+
+>Replace 'MOVIE_ID' in the following command with the correct id of the movie
+>
+curl -X GET -H Content-Type:application/json '[http://localhost:9292/api/movies/MOVIE_ID/reservations
+
+See on Heroku [https://movies-grape-api.herokuapp.com/api/movies](https://movies-grape-api.herokuapp.com/api/movies)
