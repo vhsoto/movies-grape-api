@@ -25,13 +25,8 @@ JSON response:
 > }
 
 ### Run migrations
-> Sequel currently has adapters for ADO, Amalgalite, IBM_DB, JDBC, MySQL, Mysql2, ODBC, Oracle, PostgreSQL, SQLAnywhere, SQLite3, and TinyTDS. Change (ADAPTER) of your preference, like(sqlite or postgres)
 
-*At the root of project, run the command below:*
-
-> *Replace 'DB_NAME' with your database name*
-
-sequel -m db/migrations ADAPTER://db/DB_NAME.db
+Rake db:migrate
 
 ### Create movie
 
